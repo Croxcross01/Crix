@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[ SWIM NETWORK ]</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>[ SWIM NETWORK ]</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#shows">Shows</a></li>
+                <li><a href="#favorites">Favorites</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="video-container">
+            <video id="videoPlayer" controls>
+                <source src="./videos/videoplayback.mp4" type="video/mp4">
+                Your browser does not support the video player.
+            </video>
+            <div class="video-info">
+                <h2>Episode Title</h2>
+                <p>Season 1, Episode 1</p>
+                <p class="description"></p>
+            </div>
+        </div>
+
+        <div class="show-list">
+            <h2>More Episodes</h2>
+            <div class="show-grid">
+                <div class="show-card" onclick="playEpisode1()">
+                    
+                    <h3>Episode 1</h3>
+                </div>
+                <div class="show-card" onclick="playEpisode2()">
+                    
+                    <h3>Episode 2</h3>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 [ SWIM NETWORK ]. All rights reserved.</p>
+    </footer>
+
+    <style>
+        .show-card {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .show-card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+
+    <script>
+        function playEpisode1() {
+            const video = document.getElementById('videoPlayer');
+            const title = document.querySelector('.video-info h2');
+            const episode = document.querySelector('.video-info p');
+            
+            video.src = './videos/videoplayback.mp4';
+            title.textContent = "FAMILY GUY";
+            episode.textContent = "Season 1, Episode 1";
+            video.play();
+            scrollToVideo();
+        }
+
+        function playEpisode2() {
+            const video = document.getElementById('videoPlayer');
+            const title = document.querySelector('.video-info h2');
+            const episode = document.querySelector('.video-info p');
+            
+            video.src = './videos/videoplayback (2).mp4';
+            title.textContent = "FAMILY GUY";
+            episode.textContent = "Season 1, Episode 2";
+            video.play();
+            scrollToVideo();
+        }
+
+        function scrollToVideo() {
+            document.querySelector('.video-container').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+    </script>
+</body>
+</html> 
